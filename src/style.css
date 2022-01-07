@@ -21,18 +21,24 @@
   width: 5rem;
 }
 
-.header .pages {
+.header h1 {
+  cursor: pointer;
+}
+
+.header div {
   margin-left: auto;
-  display: flex;
-  justify-content: space-between;
-  gap: max(.5rem);
 }
 
-.header ul a {
-  color: black;
+a {
+  margin-inline: 2vw;
 }
 
-.header, .header ul {
+a:hover {
+  cursor: pointer;
+  /* color: rgb(92, 92, 92); */
+}
+
+.header {
   display: flex;
 }
 
@@ -70,7 +76,6 @@
 }
 
 .about-us {
-  /* height: 75vh; */
   padding: .75rem;
   color: rgb(255, 255, 255);
   background: url(/src/images/about-us-background.jpg);
@@ -90,6 +95,17 @@
   height: 50rem;
 }
 
+@media (max-width: 75.75rem) {
+  .opening-hours section {
+    justify-content: center;
+    min-height: 35rem;
+  }
+
+  .opening-hours img {
+    display: none;
+  }
+}
+
 .location {
   min-height: 120vh;
 }
@@ -100,10 +116,67 @@
   align-items: center;
 }
 
+.location p {
+  text-align: center;
+}
+
 .location section iframe {
+  border: 0;
   min-width: 100%;
+  min-height: 28.125rem;
 }
 
 div section {
   width: min(80%, 70.5rem);
+}
+
+.contact-section, form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.5rem;
+  gap: 1.5rem;
+  margin-block: 2rem;
+  padding: 2rem;
+  border: 1px gray solid;
+}
+
+.contact-section, form, textarea {
+  border-radius: 1rem;
+  width: min(100%, 30rem);
+}
+
+.contact-section a {
+  margin: 0;
+}
+
+form, form label {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  width: 100%;
+}
+
+form input {
+  background-color: rgb(235, 235, 235);
+  border: none;
+  border-radius: .5rem;
+  font-size: 1.25rem;
+  padding: .25rem;
+}
+
+textarea {
+  margin-block: 2rem;
+}
+
+/* footer */
+
+.footer {
+  font-size: 2rem;
+  box-shadow: 0px 0px 5px gray;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
 }
