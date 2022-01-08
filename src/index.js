@@ -1,10 +1,12 @@
 import './style.css';
-import loadHomePage from './home.js';
-import loadMenuPage from './menu';
-import loadContactPage from './contact';
+import './home.css';
+import './contact.css';
+import HomePage from './home.js';
+import MenuPage from './menu';
+import ContactPage from './contact';
 
 const content = document.querySelector('#content');
-loadHomePage(content); 
+HomePage.load(content); 
 const clearPage = () => {
   while(content.firstChild) {
     content.removeChild(content.firstChild);
@@ -17,16 +19,16 @@ window.addEventListener('click', (e) => {
   
     document.querySelector('.home').addEventListener('click', () => {
       clearPage();
-      loadHomePage(content);
+      HomePage.load(content);
     })
 
     document.querySelector('.menu').addEventListener('click', () => {
       clearPage();
-      loadMenuPage(content);
+      MenuPage.load(content);
     })
     
     document.querySelector('.contact').addEventListener('click', () => {
       clearPage();
-      loadContactPage(content);
+      ContactPage.load(content);
     })
 }, false)
