@@ -1,0 +1,63 @@
+.home .about-us, .opening-hours, .location {
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  min-width: 100%;
+}
+
+.home .about-us section {
+  background-color: rgba(0, 0, 0, 0.39);
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+.home .about-us {
+  padding: .75rem;
+  color: rgb(255, 255, 255);
+  background: url(/src/images/about-us-background.jpg);
+}
+
+.home .opening-hours {
+  height: auto;
+}
+
+.home .opening-hours section {
+  display: flex;
+  align-items: center;
+}
+
+.home .opening-hours img {
+  margin-left: auto;
+  height: 50rem;
+}
+
+@media (max-width: 75.75rem) {
+  .home .opening-hours section {
+    justify-content: center;
+    min-height: 35rem;
+  }
+
+  .home .opening-hours img {
+    display: none;
+  }
+}
+
+.home .location {
+  min-height: 120vh;
+}
+
+.home .location section div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home .location p {
+  text-align: center;
+}
+
+.home .location section iframe {
+  border: 0;
+  min-width: 100%;
+  min-height: 28.125rem;
+}

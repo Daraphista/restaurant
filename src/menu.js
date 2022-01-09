@@ -9,8 +9,9 @@ const MenuPage = (() => {
     DOM.createHeading(section, 'h2', headingText);
     DOM.createList(section, true, ...lis);
   }
+
   const _loadMain = (parent) => {
-    const main = DOM.createContainer(parent, 'main');
+    const main = DOM.createContainer(parent, 'main', 'menu');
 
     const col1 = DOM.createContainer(main, 'column');
     _loadSection(col1, 'BEST SELLER',

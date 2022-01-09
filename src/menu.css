@@ -1,0 +1,29 @@
+.main.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-block: 4rem;
+}
+
+.main.menu .column {
+  width: 40%;
+  gap: 4rem;
+  align-items: center;
+}
+
+.main.menu .column section {
+  font-size: 1.5rem;
+}
+
+.main.menu .column section h2 {
+  margin-bottom: 1.25rem;
+}
+
+.main.menu .column section li {
+  display: flex;
+  width: min(100%, 25rem);
+}
+
+.main.menu .column section li div {
+  margin-left: auto;
+}

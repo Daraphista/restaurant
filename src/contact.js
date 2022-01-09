@@ -21,7 +21,7 @@ const ContactPage = (() => {
     const section = DOM.createSection(parent);
     DOM.createHeading(section, 'h2', 'Make a reservation');
 
-    DOM.createForm(parent,
+    DOM.createForm(section,
       _Input('First Name', 'text', 'fname'),
       _Input('Last Name', 'text', 'lname'),
       _Input('Time', 'time', 'time'),
@@ -34,9 +34,10 @@ const ContactPage = (() => {
     DOM.createTextArea(section, '10', undefined);
   }
   const _loadMain = (parent) => {
-    _loadContactSection(parent);
-    _loadReservationSection(parent);
-    _loadSuggestionSection(parent);
+    const main = DOM.createContainer(parent, 'main', 'contact');
+    _loadContactSection(main);
+    _loadReservationSection(main);
+    _loadSuggestionSection(main);
   }
 
   const load = (parent) => {
