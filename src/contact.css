@@ -38,6 +38,7 @@ form input {
 
 textarea {
   margin-block: 2rem;
+  padding: .5rem;
 }
 
 .main.contact section:first-child {

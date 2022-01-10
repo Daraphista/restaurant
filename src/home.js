@@ -1,5 +1,8 @@
 import DOM from "./DOM";
 import Header from "./header";
+
+import openingHoursBackground from "./images/opening-hours-background.jpg";
+
 const HomePage = (() => {
   const _loadAboutUs = (parent) => {
     const aboutUs = DOM.createContainer(parent, 'about-us');
@@ -31,7 +34,7 @@ const HomePage = (() => {
     'Thursday: 10am - 10pm',
     'Friday: 10am - 10pm',
     'Saturday: 10am - 10pm');
-    DOM.createImage(section, '../src/images/opening-hours-background.jpg')
+    DOM.createImage(section, openingHoursBackground)
   }
   const _loadLocation = (parent) => {
     const location = DOM.createContainer(parent, 'location');

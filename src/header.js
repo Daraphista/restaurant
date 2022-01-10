@@ -1,7 +1,8 @@
 import DOM from "./DOM";
+import logo from "./images/logo.png";
 const Header = (() => {
   const _loadLogo = (parent) => {
-    DOM.createImage(parent, '../src/images/logo.png');
+    DOM.createImage(parent, logo);
   }
   const _loadTitle = (parent) => {
     DOM.createHeading(parent, 'h1', 'THE FRONTYARD.');
