@@ -48,14 +48,13 @@ const HomePage = (() => {
     'lazy');
   }
   const _loadMain = (parent) => {
-    const _main = DOM.createContainer(parent, 'main', 'home');
-    _loadAboutUs(_main);
-    _loadOpeningHours(_main);
-    _loadLocation(_main);
+    parent.classList.add('home');
+    _loadAboutUs(parent);
+    _loadOpeningHours(parent);
+    _loadLocation(parent);
   }
 
   const load = (parent) => {
-    Header.load(parent);
     _loadMain(parent);
   }
   return { load };

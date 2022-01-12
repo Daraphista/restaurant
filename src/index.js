@@ -2,34 +2,36 @@ import './style.css';
 import './home.css';
 import './menu.css'
 import './contact.css';
+import './header.css';
+import Header from './header';
 import HomePage from './home.js';
 import MenuPage from './menu';
 import ContactPage from './contact';
 
-const content = document.querySelector('#content');
-HomePage.load(content); 
-const clearPage = () => {
-  while(content.firstChild) {
-    content.removeChild(content.firstChild);
+const content = document.getElementById('content');
+
+Header.load(content);
+
+const main = document.createElement('div');
+main.classList.add('main');
+content.appendChild(main);
+
+const mainBackground = document.createElement('div');
+mainBackground.classList.add('background');
+mainBackground.classList.add('main');
+main.appendChild(mainBackground);
+
+HomePage.load(main);
+
+window.addEventListener('scroll', () => {
+  const topOffWindow = window.scrollY;
+  const mainPosition = main.offsetTop;
+  const headerHead = document.querySelector('.header-head');
+
+  if(topOffWindow > mainPosition) {
+    headerHead.classList.add('fixed');
+    headerHead.classList.remove('no-animation');
+  } else {
+    headerHead.classList.remove('fixed');
   }
-}
-
-const header = document.querySelector('.header');
-window.addEventListener('click', (e) => {
-  const homeBtn = document.querySelector('.home');
-  
-    document.querySelector('.home').addEventListener('click', () => {
-      clearPage();
-      HomePage.load(content);
-    })
-
-    document.querySelector('.menu').addEventListener('click', () => {
-      clearPage();
-      MenuPage.load(content);
-    })
-    
-    document.querySelector('.contact').addEventListener('click', () => {
-      clearPage();
-      ContactPage.load(content);
-    })
-}, false)
+})

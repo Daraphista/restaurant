@@ -76,7 +76,7 @@ const MenuPage = (() => {
   }
 
   const load = (parent) => {
-    Header.load(parent)
+    // Header.load(parent)
     _loadMain(parent);
   }
   return { load }

@@ -6,7 +6,6 @@
 }
 
 .home .about-us section {
-  background-color: rgba(0, 0, 0, 0.39);
   padding: 2rem;
   border-radius: 2rem;
 }
@@ -14,7 +13,6 @@
 .home .about-us {
   padding: .75rem;
   color: rgb(255, 255, 255);
-  background: url(/src/images/about-us-background.jpg);
 }
 
 .home .opening-hours {
@@ -28,7 +26,7 @@
 
 .home .opening-hours img {
   margin-left: auto;
-  height: 50rem;
+  height: 100vh;
 }
 
 @media (max-width: 75.75rem) {

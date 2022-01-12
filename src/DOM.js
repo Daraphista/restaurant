@@ -92,7 +92,6 @@ const DOM = (() => {
   const createTextArea = (parent, rows, cols) => {
     const textArea = document.createElement('textarea');
     textArea.rows = rows;
-    // textArea.cols = cols;
     parent.appendChild(textArea);
   }
 
