@@ -8,9 +8,12 @@ const DOM = (() => {
     
     return container;
   }
-  const createSection = (parent) => {
+  const createSection = (parent, ...classNames) => {
     const section = document.createElement('section');
     parent.appendChild(section);
+    classNames.forEach(className => {
+      section.classList.add(className);
+    })
 
     return section;
   }

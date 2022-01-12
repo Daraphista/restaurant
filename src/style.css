@@ -6,30 +6,49 @@
   text-decoration: none;
   box-sizing: border-box;
   color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
 }
 
 /* --------------main-------------- */
 
-.main, .main div {
-  display: flex;
-  flex-direction: column;
-}
-
-.main {
+.main, section, .split {
   display: flex;
   align-items: center;
-  gap: 5rem;
 }
 
 .main {
+  flex-direction: column;
   background-image: url(./images/plain-background2.jpg);
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
 }
 
-div section {
+.main section {
   width: min(80%, 70.5rem);
+  min-height: 101vh;
+  padding-top: 5.0800625rem;
+}
+
+.main:last-child {
+  min-height: 100vh;
+}
+
+section div {
+  min-width: 100%;
+}
+
+.split div {
+  min-width: 50%;
 }
 
 /* footer */

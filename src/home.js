@@ -5,10 +5,10 @@ import openingHoursBackground from "./images/opening-hours-background.jpg";
 
 const HomePage = (() => {
   const _loadAboutUs = (parent) => {
-    const aboutUs = DOM.createContainer(parent, 'about-us');
-    const section = DOM.createSection(aboutUs);
-    DOM.createHeading(section, 'h2', 'About Us');
-    DOM.createPara(section, 
+    const section = DOM.createSection(parent, 'about-us');
+    const div = DOM.createContainer(section);
+    DOM.createHeading(div, 'h2', 'About Us');
+    DOM.createPara(div,
     `The Frontyard is one of the best resto-bars in Echague,
     Isabela, Philippines. The place is open-air and has a
     magnificently charming tropical design. It's the perfect
@@ -22,11 +22,11 @@ const HomePage = (() => {
     Come and eat, drink, and unwind at the Frontyard today!`);
   }
   const _loadOpeningHours = (parent) => {
-    const openingHours = DOM.createContainer(parent, 'opening-hours')
-    const section = DOM.createSection(openingHours);
-    const div = DOM.createContainer(section);
-    DOM.createHeading(div, 'h2', 'Opening Hours');
-    DOM.createList(div, false,
+    const section = DOM.createSection(parent, 'opening-hours');
+    const splitContainer = DOM.createContainer(section, 'split');
+    const col1 = DOM.createContainer(splitContainer);
+    DOM.createHeading(col1, 'h2', 'Opening Hours');
+    DOM.createList(col1, false,
     'Sunday: 10am - 10pm',
     'Monday: Closed',
     'Tuesday: 10am - 10pm',
@@ -34,16 +34,16 @@ const HomePage = (() => {
     'Thursday: 10am - 10pm',
     'Friday: 10am - 10pm',
     'Saturday: 10am - 10pm');
-    DOM.createImage(section, openingHoursBackground)
+    const col2 = DOM.createContainer(splitContainer);
+    DOM.createImage(col2, openingHoursBackground)  
   }
   const _loadLocation = (parent) => {
-    const location = DOM.createContainer(parent, 'location');
-    const section = DOM.createSection(location);
+    const section = DOM.createSection(parent, 'location');
     const div = DOM.createContainer(section);
     DOM.createHeading(div, 'h2', 'Location');
     DOM.createPara(div, `Ramos St, Purok 7, Taggappan, Echague, 
     Isabela, Philippines`);
-    DOM.createIframe(div, 
+    DOM.createIframe(div,
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d955.37721381034!2d121.6743222880653!3d16.701443299277294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339aa937c7676921%3A0x761615bda445781d!2sThe%20Frontyard!5e0!3m2!1sen!2sph!4v1640853977731!5m2!1sen!2sph',
     'lazy');
   }
