@@ -4,14 +4,15 @@ import logo from "./images/logo.png";
 
 const Header = (() => {
   const _loadBackgroundImg = (parent) => {
-    const _background1 = DOM.createContainer(parent, 'background', 'header');
+    DOM.createContainer(parent, 'background', 'header');
   }
   const _loadLogo = (parent) => {
     DOM.createImage(parent, logo);
   }
   const _loadCenterLogo = (parent) => {
-    const container = DOM.createContainer(parent, 'center-logo')
-    _loadLogo(container);
+    // const container = DOM.createContainer(parent, 'center-logo')
+    // _loadLogo(container);
+    DOM.createImage(parent, logo, 'center-logo')
   }
   const _loadTitle = (parent) => {
     DOM.createHeading(parent, 'h1', 'THE FRONTYARD.');

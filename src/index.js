@@ -23,15 +23,15 @@ main.appendChild(mainBackground);
 
 HomePage.load(main);
 
-window.addEventListener('scroll', () => {
-  const topOffWindow = window.scrollY;
-  const mainPosition = main.offsetTop;
-  const headerHead = document.querySelector('.header-head');
+// window.addEventListener('scroll', () => {
+//   const topOffWindow = window.scrollY;
+//   const mainPosition = main.offsetTop;
+//   const headerHead = document.querySelector('.header-head');
 
-  if(topOffWindow > mainPosition) {
-    headerHead.classList.add('fixed');
-    headerHead.classList.remove('no-animation');
-  } else {
-    headerHead.classList.remove('fixed');
-  }
-})
+//   if(topOffWindow > mainPosition) {
+//     headerHead.classList.add('fixed');
+//     headerHead.classList.remove('no-animation');
+//   } else {
+//     headerHead.classList.remove('fixed');
+//   }
+// })

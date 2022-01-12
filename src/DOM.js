@@ -62,9 +62,10 @@ const DOM = (() => {
       })
     }
   }
-  const createImage = (parent, src) => {
+  const createImage = (parent, src, id) => {
     const image = document.createElement('img');
     image.src = src;
+    image.id = id;
     parent.appendChild(image);
   }
   const createIframe = (parent, src, loading) => {
