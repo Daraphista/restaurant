@@ -1,6 +1,6 @@
 .header {
   box-shadow: 0px 0px 5px rgb(39, 39, 39);
-  min-height: 101vh;
+  min-height: 100vh;
   position: relative;
   background-image: url(./images/about-us-background2.jpg);
   background-attachment: fixed;
@@ -75,7 +75,7 @@
   font-size: 2rem;
 }
 
-a {
+a, .dropdown {
   margin-inline: 2vw;
 }
 
@@ -99,4 +99,69 @@ a:hover {
   top: 50%;
   transform: translate(-50%, -50%);
   width: min(50%, 25rem);
+}
+
+.fa-caret-down:before {
+  position: absolute;
+  right: 0vw;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: .99rem;
+}
+
+.tabs a, .tabs .dropdown {
+  transition: 150ms;
+  z-index: 1;
+}
+
+.tabs a:hover, .tabs .dropdown:hover {
+  transform: translateY(-.2rem);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  animation: unGrow 200ms;
+  transform-origin: top;
+  animation-fill-mode: forwards;
+}
+
+.dropdown.activated {
+  transform: translateY(-.2rem);
+}
+
+.dropdown.activated .dropdown-content {
+  animation: growDown 200ms;
+  transform-origin: top;
+  animation-fill-mode: forwards;
+}
+
+.header-head.fixed .dropdown.activated .dropdown-content {
+  /* background-color:  rgb(15, 15, 15); */
+  background-color: rgba(0, 0, 0, 0.589);
+  border-radius: .5rem;
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes unGrow {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
 }

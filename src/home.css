@@ -2,12 +2,12 @@
   text-align: justify;
 }
 
-.opening-hours img {
-  width: 40vw;
-  border-radius: 1rem;
+div.img {
+  display: flex;
+  justify-content: right;
 }
 
-.location {
+section.location {
   text-align: center;
 }
 

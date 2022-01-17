@@ -1,4 +1,5 @@
 const DOM = (() => {
+  let _sections = 0;
   const createContainer = (parent, ...classNames) => {
     const container = document.createElement('div');
     parent.appendChild(container);
@@ -32,15 +33,29 @@ const DOM = (() => {
     link.textContent = text;
     link.target = target;
     link.href = href;
-    link.color = color;
+    link.style.color = color;
 
     parent.appendChild(link);
+
+    return link;
   }
-  const createTab = (parent, className) => {
+  const createTab = (parent, text, ...classNames) => {
     const tab = document.createElement('a');
-    tab.classList.add(className);
-    tab.textContent = className;
+    tab.textContent = text;
     parent.appendChild(tab);
+    tab.classList.add('tab')
+    classNames.forEach(className => {
+      tab.classList.add(className);
+    })
+    
+    return tab;
+  }
+  const createSpan = (parent, className) => {
+    const span = document.createElement('span');
+    span.classList.add(className);
+    parent.appendChild(span);
+
+    return span
   }
   const createList = (parent, isItem, ...lis) => {
     const ul = document.createElement('ul');
@@ -51,11 +66,10 @@ const DOM = (() => {
         const item = document.createElement('li');
         item.textContent = li.dish;
 
-        const div = createContainer(item, undefined);
-        div.textContent = li.price;
-        item.appendChild(div);
+        const span = createSpan(item);
+        span.textContent = li.price;
 
-        parent.appendChild(item);
+        ul.appendChild(item);
       })
     } else {
       lis.forEach(li => {
@@ -65,11 +79,23 @@ const DOM = (() => {
       })
     }
   }
+  const Item = (dish, price) => {
+    return { dish, price };
+  }
   const createImage = (parent, src, id) => {
     const image = document.createElement('img');
     image.src = src;
     image.id = id;
     parent.appendChild(image);
+  }
+  const createIcon = (parent, ...classNames) => {
+    const icon = document.createElement('i');
+    parent.appendChild(icon);
+    classNames.forEach(className => {
+      icon.classList.add(className);
+    })
+
+    return icon;
   }
   const createIframe = (parent, src, loading) => {
     const iFrame = document.createElement('iframe');
@@ -98,6 +124,25 @@ const DOM = (() => {
     textArea.rows = rows;
     parent.appendChild(textArea);
   }
+  const loadMenuSection = (parent, headingText, className, image, ...lis) => {
+    _sections++;
+    const _section = createSection(parent, className);
+    _section.classList.add('meals');
+    const _split = createContainer(_section, 'split');
+    let _text, _img;
+    if(_sections % 2 == 0) {
+      _text = createContainer(_split, 'text');
+      _img = createContainer(_split, 'img', 'right');
+    } else {
+      _img = createContainer(_split, 'img', 'left');
+      _text = createContainer(_split, 'text');
+    }
+    createHeading(_text, 'h2', headingText)
+    createList(_text, true, ...lis);
+    createImage(_img, image);
+
+    return _section;
+  }
 
   return {
   createContainer, 
@@ -106,11 +151,15 @@ const DOM = (() => {
   createPara,
   createLink,
   createTab,
+  createSpan,
   createList,
+  Item,
   createImage,
+  createIcon,
   createIframe,
   createForm,
   createTextArea,
+  loadMenuSection,
   }
 })();
 

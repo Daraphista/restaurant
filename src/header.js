@@ -1,6 +1,5 @@
 import DOM from "./DOM";
 import logo from "./images/logo.png";
-// import backgroundImg from "./images/about-us-background2.jpg"
 
 const Header = (() => {
   const _loadBackgroundImg = (parent) => {
@@ -10,8 +9,6 @@ const Header = (() => {
     DOM.createImage(parent, logo);
   }
   const _loadCenterLogo = (parent) => {
-    // const container = DOM.createContainer(parent, 'center-logo')
-    // _loadLogo(container);
     DOM.createImage(parent, logo, 'center-logo')
   }
   const _loadTitle = (parent) => {
@@ -19,18 +16,28 @@ const Header = (() => {
   }
   const _loadTabs = (parent) => {
     const tabs = DOM.createContainer(parent, 'tabs');
-    DOM.createTab(tabs, 'home');
-    DOM.createTab(tabs, 'menu');
-    DOM.createTab(tabs, 'contact');
+    DOM.createTab(tabs, 'Home', 'home');
+
+    const dropdown1 = DOM.createContainer(tabs, 'dropdown', 'menu');
+    const menu = DOM.createTab(dropdown1, 'Menu', 'menu');
+    DOM.createIcon(menu, 'fas', 'fa-caret-down');
+    const content1 = DOM.createContainer(dropdown1, 'dropdown-content');
+    DOM.createTab(content1, 'Meals', 'meals');
+    DOM.createTab(content1, 'Snacks', 'snacks');
+    DOM.createTab(content1, 'Drinks', 'drinks');
+    const contact = DOM.createTab(tabs, 'Contact', 'contact');
+    contact.href = '#footer';
   }
   const load = (parent) => {
-    const _header = DOM.createContainer(parent, 'header');
-    _loadBackgroundImg(_header);
-    const _container = DOM.createContainer(_header, 'header-head', 'no-animation');
+    const header = DOM.createContainer(parent, 'header');
+    header.id = 'top';
+    _loadBackgroundImg(header);
+    const _container = DOM.createContainer(header, 'header-head', 'no-animation');
     _loadLogo(_container);
     _loadTitle(_container);
     _loadTabs(_container);
-    _loadCenterLogo(_header);
+    _loadCenterLogo(header);
+    return header;
   } 
 
   return { load };

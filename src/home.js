@@ -1,11 +1,10 @@
 import DOM from "./DOM";
-import Header from "./header";
-
 import openingHoursBackground from "./images/opening-hours-background.jpg";
 
 const HomePage = (() => {
   const _loadAboutUs = (parent) => {
     const section = DOM.createSection(parent, 'about-us');
+    section.id = 'main';
     const div = DOM.createContainer(section);
     DOM.createHeading(div, 'h2', 'About Us');
     DOM.createPara(div,
@@ -23,22 +22,26 @@ const HomePage = (() => {
   }
   const _loadOpeningHours = (parent) => {
     const section = DOM.createSection(parent, 'opening-hours');
+    section.id = 'opening-hours';
     const splitContainer = DOM.createContainer(section, 'split');
     const col1 = DOM.createContainer(splitContainer);
-    DOM.createHeading(col1, 'h2', 'Opening Hours');
-    DOM.createList(col1, false,
-    'Sunday: 10am - 10pm',
-    'Monday: Closed',
-    'Tuesday: 10am - 10pm',
-    'Wednesday: 10am - 10pm',
-    'Thursday: 10am - 10pm',
-    'Friday: 10am - 10pm',
-    'Saturday: 10am - 10pm');
-    const col2 = DOM.createContainer(splitContainer);
+    const container = DOM.createContainer(col1, 'text');
+    DOM.createHeading(container, 'h2', 'Opening Hours');
+    DOM.createList(container, true,
+      DOM.Item('Sunday', '10am - 10pm'),
+      DOM.Item('Monday', 'Closed'),
+      DOM.Item('Tuesday', '10am - 10pm'),
+      DOM.Item('Wednesday', '10am - 10pm'),
+      DOM.Item('Thursday', '10am - 10pm'),
+      DOM.Item('Friday', '10am - 10pm'),
+      DOM.Item('Saturday', '10am - 10pm'),
+    )
+    const col2 = DOM.createContainer(splitContainer, 'img', 'right');
     DOM.createImage(col2, openingHoursBackground)  
   }
   const _loadLocation = (parent) => {
     const section = DOM.createSection(parent, 'location');
+    section.id = 'location';
     const div = DOM.createContainer(section);
     DOM.createHeading(div, 'h2', 'Location');
     DOM.createPara(div, `Ramos St, Purok 7, Taggappan, Echague, 
