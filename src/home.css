@@ -17,3 +17,51 @@ iframe {
   min-height: 23rem;
   border-radius: 1rem;
 }
+
+.gallery {
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  gap: 1rem;
+  transition: 600ms;
+}
+
+.gallery .button {
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50rem;
+  background-color: rgba(0, 0, 0, 0.541);
+  border: none;
+  cursor: pointer;
+}
+
+.gallery .button:hover {
+  background-color: rgba(0, 0, 0, 0.63);
+}
+
+.gallery .button.right {
+  right: -5rem;
+}
+
+.gallery .button.left {
+  left: -5rem;
+}
+
+/* .gallery img {
+  cursor: pointer;
+  transition: 200ms;
+} */
+
+/* .gallery img:hover {
+  transform: scale(.99);
+} */
+
+#content {
+  overflow-x: hidden;
+}

@@ -56,7 +56,7 @@ section div {
   min-width: 50%;
 }
 
-.split img {
+.main img {
   height: 80vh;
   border-radius: 1rem;
   justify-self: center;

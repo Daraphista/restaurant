@@ -1,5 +1,13 @@
 import DOM from "./DOM";
 import openingHoursBackground from "./images/opening-hours-background.jpg";
+import ramen from "./images/ramen1.jpg";
+import carbonara from "./images/carbonara3.jpg";
+import sisig from "./images/sisig3.jpg";
+import bagnetsilog from "./images/bagnetsilog.jpg";
+import cater from "./images/cater2.jpg";
+import burger from "./images/burger.jpg";
+import bbq from "./images/filipino-bbq.jpg";
+import pikaPika from "./images/super-bowl.jpg";
 
 const HomePage = (() => {
   const _loadAboutUs = (parent) => {
@@ -50,11 +58,50 @@ const HomePage = (() => {
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d955.37721381034!2d121.6743222880653!3d16.701443299277294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339aa937c7676921%3A0x761615bda445781d!2sThe%20Frontyard!5e0!3m2!1sen!2sph!4v1640853977731!5m2!1sen!2sph',
     'lazy');
   }
+  const _loadGallery = (parent) => {
+    const section = DOM.createSection(parent, 'gallery')
+    section.id = 'gallery';
+    const carousel = DOM.createContainer(section, 'carousel');
+    const images = [
+      ramen,
+      carbonara,
+      sisig,
+      bagnetsilog,
+      cater,
+      burger,
+      bbq,
+      pikaPika
+    ]
+    images.forEach(image => {
+      DOM.createImage(carousel, image);
+    })
+    let selectedImage = 0;
+    const buttonRight = DOM.createButton(section, undefined, 'button', 'right');
+    DOM.createIcon(buttonRight, 'fas', 'fa-arrow-right');
+    let distance = 0;
+    buttonRight.addEventListener('click', e => {
+      if(selectedImage < images.length - 3) {
+        selectedImage++;
+        distance -= 430;
+        carousel.style.transform = `translateX(${distance}px)`;
+      }
+    })
+    const buttonLeft = DOM.createButton(section, undefined, 'button', 'left');
+    DOM.createIcon(buttonLeft, 'fas', 'fa-arrow-left');
+    buttonLeft.addEventListener('click', e => {
+      if(selectedImage > 0) {
+        selectedImage--;
+        distance += 430;
+        carousel.style.transform = `translateX(${distance}px)`;
+      }
+    })
+  }
   const _loadMain = (parent) => {
     parent.classList.add('home');
     _loadAboutUs(parent);
     _loadOpeningHours(parent);
     _loadLocation(parent);
+    _loadGallery(parent);
   }
 
   const load = (parent) => {

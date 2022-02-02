@@ -87,6 +87,8 @@ const DOM = (() => {
     image.src = src;
     image.id = id;
     parent.appendChild(image);
+
+    return image;
   }
   const createIcon = (parent, ...classNames) => {
     const icon = document.createElement('i');
@@ -143,6 +145,16 @@ const DOM = (() => {
 
     return _section;
   }
+  const createButton = (parent, text, ...classNames) => {
+    const button = document.createElement('button');
+    button.textContent = text;
+    classNames.forEach(className => {
+      button.classList.add(className);
+    })
+    parent.appendChild(button);
+
+    return button
+  }
 
   return {
   createContainer, 
@@ -160,6 +172,7 @@ const DOM = (() => {
   createForm,
   createTextArea,
   loadMenuSection,
+  createButton,
   }
 })();
 

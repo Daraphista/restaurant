@@ -29,17 +29,7 @@ const Footer = (() => {
     
     const socials = DOM.createContainer(section, 'socials');
     const author = DOM.createContainer(socials);
-    DOM.createPara(author, 'by Angelo Mendoza');
-    
-    const iconContainer = DOM.createContainer(socials);
-    const github = DOM.createLink(iconContainer, '', '_blank', 'https://github.com/Daraphista', 'white');
-    const twitter = DOM.createLink(iconContainer, '', '_blank', 'https://twitter.com/TechnoSapien_', 'white');
-    const linkedIn = DOM.createLink(iconContainer, '', '_blank', 'https://www.linkedin.com/in/angelo-mendoza-17738b227/', 'white');
-    const facebook = DOM.createLink(iconContainer, '', '_blank', 'https://www.facebook.com/angelo.mendoza.5070', 'white');
-    DOM.createIcon(github, 'fab', 'fa-github-square');
-    DOM.createIcon(twitter, 'fab', 'fa-twitter-square');
-    DOM.createIcon(linkedIn, 'fab', 'fa-linkedin');
-    DOM.createIcon(facebook, 'fab', 'fa-facebook-square');
+    DOM.createPara(author, 'by Angelo Mendoza and Andrei De la Cruz');
     
     const sitemap2 = DOM.createSection(footer, 'sitemap');
     const div2 = DOM.createContainer(sitemap2);
