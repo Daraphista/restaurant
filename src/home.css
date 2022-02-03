@@ -53,14 +53,52 @@ iframe {
   left: -5rem;
 }
 
-/* .gallery img {
+.modal {
+  display: none;
+}
+
+.modal.activated {
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.897);
+  z-index: 99999999;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal #modal-image {
+  height: 98%;
+}
+
+.modal .close-button {
+  float: right;
+  position: absolute;
+  right: 3rem;
+  top: 1.5rem;
+  border: none;
+  background: none;
+}
+
+.modal .close-button * {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.gallery img {
   cursor: pointer;
   transition: 200ms;
-} */
+}
 
-/* .gallery img:hover {
+.gallery img:hover {
   transform: scale(.99);
-} */
+}
+
+body.noscroll {
+  overflow: hidden;
+}
 
 #content {
   overflow-x: hidden;

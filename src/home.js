@@ -72,13 +72,33 @@ const HomePage = (() => {
       bbq,
       pikaPika
     ]
-    images.forEach(image => {
-      DOM.createImage(carousel, image);
+
+    const body = document.querySelector('body');
+
+    const modal = DOM.createContainer(section, 'modal');
+    const modalImage = DOM.createImage(modal, undefined, 'modal-image');
+    const closeButton = DOM.createButton(modal, undefined, 'close-button');
+    DOM.createIcon(closeButton, 'fas', 'fa-times');
+    closeButton.addEventListener('click', () => {
+      modal.classList.remove('activated');
+      body.classList.remove('noscroll');
     })
+
+    images.forEach(image => {
+      const imageElement = DOM.createImage(carousel, image);
+      imageElement.addEventListener('click', () => {
+        modalImage.src = imageElement.src;
+        modal.classList.add('activated');
+        body.classList.add('noscroll');
+      })
+    });
+
     let selectedImage = 0;
+    let distance = 0;
+
     const buttonRight = DOM.createButton(section, undefined, 'button', 'right');
     DOM.createIcon(buttonRight, 'fas', 'fa-arrow-right');
-    let distance = 0;
+    
     buttonRight.addEventListener('click', e => {
       if(selectedImage < images.length - 3) {
         selectedImage++;
@@ -86,6 +106,7 @@ const HomePage = (() => {
         carousel.style.transform = `translateX(${distance}px)`;
       }
     })
+
     const buttonLeft = DOM.createButton(section, undefined, 'button', 'left');
     DOM.createIcon(buttonLeft, 'fas', 'fa-arrow-left');
     buttonLeft.addEventListener('click', e => {
